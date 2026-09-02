@@ -1,0 +1,22 @@
+/* Додаткові стилі курсу */
+
+/* Підсвітка коду і зручність для 4-класника */
+:root {
+  --sl-font: 'Inter', system-ui, -apple-system, sans-serif;
+  --sl-color-accent-high: oklch(0.55 0.14 250);
+}
+
+/* Командні блоки трохи більші для читабельності */
+.expressive-code {
+  font-size: 0.95em;
+}
+
+/* Плавний якірний скрол */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Зручніші відступи для таблиць на сайті */
+.sl-markdown-content table {
+  font-size: 0.95em;
+}

@@ -166,3 +166,29 @@ Computer Detective — інтеграція Python, Linux, мереж, безп�
 ## Фінальна мета
 
 Після курсу Марко має не просто знати набір Linux-команд. Він повинен уміти пояснити ланцюжок: **дані → біти/байти → представлення тексту/зображень/звуку → CPU/RAM/накопичувач → файли → ОС і процеси → мережа/IP/DNS/HTTP → безпека → Git**, а також дослідити власну систему та створити фінальний проєкт **Computer Detective**.
+
+## Веб-сайт курсу
+
+Лекції та словник також публікуються у вигляді зручного навігаційного сайту на базі [Astro Starlight](https://starlight.astro.build): `https://brunif.github.io/computer-science-for-kids/`.
+
+Єдине джерело правди — файли `lecture-*.md` і `glossary.md` у корені репозиторію. Перед кожною збіркою скрипт `docs-site/scripts/sync-content.mjs` копіює їх у `docs-site/src/content/docs/`, додаючи необхідний YAML-заголовок (`title`) без зміни оригіналів.
+
+### Локальний запуск
+
+```bash
+cd docs-site
+npm install        # або npm ci
+npm run dev        # режим розробки
+npm run build      # продуктивна збірка у docs-site/dist/
+```
+
+### Деплой — GitHub Actions
+
+Сайт будується та розгортається автоматично через GitHub Actions (`.github/workflows/deploy.yml`) після кожного push у гілку `main`. Один раз уручну налаштуйте GitHub Pages:
+
+1. Відкрийте **Settings → Pages** репозиторію.
+2. У полі **Source** оберіть **GitHub Actions**.
+3. Після наступного push сайт буде опублікований за вказаною вище адресою.
+
+> Примітка: `package-lock.json` у `docs-site/` має бути закомічений — workflow використовує `npm ci` для відтворюваної збірки.
+
