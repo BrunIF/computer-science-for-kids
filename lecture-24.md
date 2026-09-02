@@ -26,8 +26,23 @@
 
 Термінальний емулятор показує символи, приймає натискання клавіш і дає тобі сеанс shell. Спрощена схема:
 
-```text
-ти → terminal → shell → програми / системні виклики → kernel → hardware
+```mermaid
+graph LR
+    T["Ти"] --> TM["Terminal
+(вікно)"]
+    TM --> SH["Shell
+(перекладач)"]
+    SH --> PR["Програми /
+системні виклики"]
+    PR --> K["Kernel
+(ядро)"]
+    K --> HW["Hardware
+(залізо)"]
+
+    style T fill:#fff3e0
+    style SH fill:#e1f5fe
+    style K fill:#e8f5e9
+    style HW fill:#fce4ec
 ```
 
 Не кожна команда йде до ядра одним прямим кроком, але модель допомагає розкласти ролі.
