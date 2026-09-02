@@ -18,6 +18,21 @@
 
 У Linux верхівка дерева позначається `/` і називається **root directory** — кореневий каталог. Під ним є інші каталоги: `/home`, `/etc`, `/usr`, `/var` та багато інших.
 
+```mermaid
+graph TD
+    R["/ (root)"] --> H["/home"]
+    R --> E["/etc"]
+    R --> U["/usr"]
+    R --> V["/var"]
+    H --> M["/home/marko"]
+    M --> P["Projects"]
+    M --> L["marko-lab"]
+
+    style R fill:#fce4ec
+    style H fill:#e1f5fe
+    style M fill:#e8f5e9
+```
+
 Не плутай кореневий каталог `/` із користувачем `root`. Назви схожі, але це різні поняття.
 
 ## Домашня директорія — твоя кімната
