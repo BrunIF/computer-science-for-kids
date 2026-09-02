@@ -26,6 +26,41 @@
 NOT світло_увімкнене        → світло вимкнене
 ```
 
+### Таблиці істинності
+
+```mermaid
+graph TD
+    subgraph AND_table ["AND: обидва мають бути True"]
+        A1["True AND True = ✅ True"]
+        A2["True AND False = ❌ False"]
+        A3["False AND True = ❌ False"]
+        A4["False AND False = ❌ False"]
+    end
+
+    subgraph OR_table ["OR: хоча б один True"]
+        O1["True OR True = ✅ True"]
+        O2["True OR False = ✅ True"]
+        O3["False OR True = ✅ True"]
+        O4["False OR False = ❌ False"]
+    end
+
+    subgraph NOT_table ["NOT: перевертає"]
+        N1["NOT True = ❌ False"]
+        N2["NOT False = ✅ True"]
+    end
+
+    style A1 fill:#e8f5e9
+    style A2 fill:#ffebee
+    style A3 fill:#ffebee
+    style A4 fill:#ffebee
+    style O1 fill:#e8f5e9
+    style O2 fill:#e8f5e9
+    style O3 fill:#e8f5e9
+    style O4 fill:#ffebee
+    style N1 fill:#ffebee
+    style N2 fill:#e8f5e9
+```
+
 ## Логіка керує рішеннями програм
 
 Умови дозволяють програмі обирати шлях. Наприклад, гра може дозволити відкрити скриню лише якщо `has_key and level >= 5`. Так прості логічні шматочки створюють складну поведінку.

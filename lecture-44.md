@@ -24,6 +24,32 @@
 
 `git commit -m "message"` створює commit із тим, що було підготовлено. Хороше повідомлення коротко пояснює логічну зміну: `Add greeting` краще за `stuff`.
 
+```mermaid
+graph LR
+    WT["Working tree
+Твої файли"]
+    SA["Staging area
+Підготовані зміни"]
+    C["Commit
+Збережена точка"]
+    LOG["Git log
+Історія"]
+
+    WT -->|"git add"| SA
+    SA -->|"git commit"| C
+    C -->|"Додається до"| LOG
+
+    WT -.->|"git diff
+Показує зміни"| WT
+    SA -.->|"git status
+Що staged?"| SA
+
+    style WT fill:#fff3e0
+    style SA fill:#f3e5f5
+    style C fill:#e8f5e9
+    style LOG fill:#e1f5fe
+```
+
 ## Приклади
 
 ### Приклад 1

@@ -27,11 +27,52 @@ https://example.com:443/docs/page?mode=small
 
 Не кожен URL містить усі частини явно.
 
+```mermaid
+graph LR
+    A["https://example.com:443/docs/page?mode=small"]
+    A --> B["https
+Схема/
+протокол"]
+    A --> C["example.com
+Hostname"]
+    A --> D[":443
+Порт"]
+    A --> E["/docs/page
+Шлях"]
+    A --> F["?mode=small
+Параметри"]
+
+    style B fill:#e1f5fe
+    style C fill:#fff3e0
+    style D fill:#f3e5f5
+    style E fill:#e8f5e9
+    style F fill:#fce4ec
+```
+
 ## HTTP — правила запитів і відповідей
 
 Браузер як клієнт надсилає HTTP-запит: наприклад «дай ресурс `/`». Сервер повертає відповідь: статус, заголовки та, можливо, тіло сторінки.
 
 Статуси мають коди: `200` часто означає успіх, `404` — ресурс не знайдено. Є багато інших.
+
+```mermaid
+sequenceDiagram
+    participant B as Браузер 🌐
+    participant S as Сервер 🖥️
+
+    B->>S: GET /index.html
+    Note right of B: Headers: Host, Accept...
+
+    S-->>B: 200 OK
+    Note left of S: Headers: Content-Type...
+    Note left of S: Body: HTML код сторінки
+
+    B->>S: GET /style.css
+    S-->>B: 200 OK
+
+    B->>S: GET /photo.jpg
+    S-->>B: 404 Not Found
+```
 
 ## HTTPS = HTTP через захищене з’єднання
 

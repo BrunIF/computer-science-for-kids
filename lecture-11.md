@@ -16,12 +16,27 @@
 
 Корисна карта:
 
-```text
-Ввід → Обробка ↔ Тимчасова пам’ять
-          ↓
-      Збереження
-          ↓
-        Вивід
+```mermaid
+graph TD
+    A["Ввід
+Клавіатура, миша, камера"] --> B["Обробка
+CPU"]
+    B <--> C["Тимчасова пам'ять
+RAM"]
+    B --> D["Збереження
+SSD / HDD"]
+    B --> E["Графіка
+GPU"]
+    E --> F["Вивід
+Монітор"]
+    D --> F
+
+    style A fill:#e1f5fe
+    style B fill:#fff3e0
+    style C fill:#f3e5f5
+    style D fill:#e8f5e9
+    style E fill:#fce4ec
+    style F fill:#e1f5fe
 ```
 
 ## Головні ролі
@@ -33,6 +48,46 @@
 - **Motherboard** — плата, яка фізично з’єднує багато компонентів.
 - **Мережевий адаптер** — допомагає обмінюватися даними мережею.
 - **Периферія** — клавіатура, миша, камера, принтер тощо.
+
+```mermaid
+graph LR
+    subgraph "Зовнішні пристрої"
+        KB["Клавіатура"]
+        MS["Миша"]
+        CAM["Камера"]
+        MON["Монітор"]
+        PRN["Принтер"]
+    end
+
+    subgraph "Материнська плата"
+        CPU["CPU"]
+        RAM["RAM"]
+        GPU["GPU"]
+        NA["Мережевий адаптер"]
+    end
+
+    subgraph "Накопичувачі"
+        SSD["SSD"]
+        HDD["HDD"]
+    end
+
+    KB --> CPU
+    MS --> CPU
+    CAM --> CPU
+    CPU <--> RAM
+    CPU --> GPU
+    GPU --> MON
+    CPU <--> SSD
+    CPU <--> HDD
+    CPU <--> NA
+    CPU --> PRN
+
+    style CPU fill:#fff3e0,stroke:#ff9800
+    style RAM fill:#f3e5f5,stroke:#9c27b0
+    style GPU fill:#fce4ec,stroke:#e91e63
+    style SSD fill:#e8f5e9,stroke:#4caf50
+    style HDD fill:#e8f5e9,stroke:#4caf50
+```
 
 ## Потік даних на прикладі Python
 
