@@ -20,6 +20,20 @@
 
 Технічно branch — легкий рухомий покажчик на commit, але для старту корисна модель «окрема лінія експерименту».
 
+```mermaid
+gitGraph
+    commit id: "початок"
+    commit id: "додав гру"
+    branch experiment
+    checkout experiment
+    commit id: "ризикований хід"
+    commit id: "ще один експеримент"
+    checkout main
+    commit id: "звичайна робота"
+
+    merge experiment id: "злили"
+```
+
 ## main — лише типове ім’я основної гілки
 
 Назва `main` не має особливої магії. Вона просто стала поширеною назвою головної лінії історії. Можна створити `feature-greeting`, `experiment`, `fix-menu` тощо.

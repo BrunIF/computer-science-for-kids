@@ -44,6 +44,19 @@ ls | grep '.py'
 
 `ls` генерує список, `grep` залишає рядки, де є `.py`. Це маленький конвеєр.
 
+```mermaid
+graph LR
+    A["ls
+(список усіх файлів)"] -->|"stdout → stdin"| B["grep '.py'
+(фільтрує рядки)"]
+    B -->|"stdout"| C["Результат:
+тільки .py файли"]
+
+    style A fill:#e1f5fe
+    style B fill:#fff3e0
+    style C fill:#e8f5e9
+```
+
 ## Приклади
 
 ### Приклад 1
